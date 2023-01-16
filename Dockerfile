@@ -1,5 +1,11 @@
 FROM openjdk:8
 #CMD ["./mvnw", "clean", "package"]
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+COPY settings.gradle .
+COPY src src
+RUN chmod  +x ./gradlew 
 RUN ./gradlew bootJar
 ARG JAR_FILE_PATH=build/libs/*.jar
 COPY ${JAR_FILE_PATH} app.jar
