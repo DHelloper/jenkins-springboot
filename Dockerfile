@@ -11,6 +11,6 @@ COPY src src
 RUN chmod +x ./gradlew
 RUN ./gradlew bootJAR
 
-COPY ./build/libs/*.jar app.jar
+COPY ./build/libs/jenkinstest-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8081
 ENTRYPOINT ["java", "-jar", "/app.jar"]
